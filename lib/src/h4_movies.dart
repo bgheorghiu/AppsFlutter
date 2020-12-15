@@ -29,8 +29,6 @@ Future<List<dynamic>> doInit() async {
     };
     final Uri newURI = uri.replace(queryParameters: params);
     final Response response = await get(newURI);
-    final String data = response.body;
-
     final Map<dynamic, dynamic> decoder = jsonDecode(response.body);
     final Map<dynamic, dynamic> tempMovies = decoder['data']['movies'];
     print(decoder['data']['page_number']);
@@ -58,7 +56,7 @@ void main() {
   runApp(MyApp());
 }
 
-const Color primaryColor = const Color(0xFFb3e5fc);
+const Color primaryColor = Color(0xFFb3e5fc);
 const MaterialColor dropColor = Colors.blueGrey;
 
 class MyApp extends StatelessWidget {
@@ -207,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   noOfGetMore = 1;
                 });
-                doInit().then((movies) {
+                doInit().then((List movies) {
                   setState(() {
                     moviesList = movies;
                   });
