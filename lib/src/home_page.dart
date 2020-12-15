@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
     int winner = -1;
     bool okP1;
     bool okP2;
-    final List<List<int>> possibilities = [[1, 5, 9], [3, 5, 7], [1, 2, 3], [4, 5, 6],
+    final List<List<int>> possibilities = <List<int>>[[1, 5, 9], [3, 5, 7], [1, 2, 3], [4, 5, 6],
                                   [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9]];
     for(int i = 0 ; i < 8 ; i++ ) {
       okP1 = true;
@@ -81,8 +81,8 @@ class _HomePageState extends State<HomePage> {
       if(winner == 1){
         showDialog<bool>(
           context: context,
-          builder: (_)=> CustomDialog("!___red player won___!",
-              "press Reset button to start again",
+          builder: (_)=> CustomDialog('!___red player won___!',
+              'press Reset button to start again',
               resetGame
           )
         );
@@ -90,8 +90,8 @@ class _HomePageState extends State<HomePage> {
       else{
         showDialog<bool>(
             context: context,
-            builder: (_)=> CustomDialog("!___blue player won___!",
-                "press Reset button to start again",
+            builder: (_)=> CustomDialog('!___blue player won___!',
+                'press Reset button to start again',
                 resetGame
             )
         );

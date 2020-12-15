@@ -12,15 +12,16 @@ const String NotFoundURL =
 int noOfGetMore = 1;
 int listLength = 0;
 
-// ignore: always_specify_types
-Future<List> doInit() async {
-  // ignore: always_specify_types
-  final List<Map> movies = [];
+
+Future<List<dynamic>> doInit() async {
+
+  final List<dynamic> movies = <dynamic>[];
   int pageCounter = 1;
   while (movies.length < 50) {
-    Uri uri = Uri.parse('https://yts.mx/api/v2/list_movies.json');
+    final Uri uri = Uri.parse('https://yts.mx/api/v2/list_movies.json');
     final String pageValue = pageCounter.toString();
-    final Map<String, String> params = {
+
+    final Map<String, String> params = <String, String>{
       'minimum_rating': dropdownValue2,
       'genre': dropdownValue,
       'quality': dropdownValue3,
@@ -29,10 +30,9 @@ Future<List> doInit() async {
     final Uri newURI = uri.replace(queryParameters: params);
     final Response response = await get(newURI);
     final String data = response.body;
-    // ignore: always_specify_types
-    final Map decoder = jsonDecode(response.body);
-    // ignore: always_specify_types
-    final Map tempMovies = decoder['data']['movies'];
+
+    final Map<dynamic, dynamic> decoder = jsonDecode(response.body);
+    final Map<dynamic, dynamic> tempMovies = decoder['data']['movies'];
     print(decoder['data']['page_number']);
     print(movies.length);
     pageCounter += 1;
@@ -58,8 +58,8 @@ void main() {
   runApp(MyApp());
 }
 
-const primaryColor = const Color(0xFFb3e5fc);
-const dropColor = Colors.blueGrey;
+const Color primaryColor = const Color(0xFFb3e5fc);
+const MaterialColor dropColor = Colors.blueGrey;
 
 class MyApp extends StatelessWidget {
   @override

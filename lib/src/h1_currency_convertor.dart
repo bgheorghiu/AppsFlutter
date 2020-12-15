@@ -11,27 +11,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Currency Convertor',
-        home: startPage()
+        home: StartPage()
     );
   }
 }
 
-class startPage extends StatefulWidget {
+class StartPage extends StatefulWidget {
   @override
-  _startPageState createState() => _startPageState();
+  _StartPageState createState() => _StartPageState();
 }
 
-class _startPageState extends State<startPage> {
+class _StartPageState extends State<StartPage> {
   String toChange = '';
   String toShow = ' ';
-  String errTxt = null;
-  RegExp re = new RegExp(r'^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$');
+  String errTxt;
+  RegExp re = RegExp(r'^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text('Currency Convertor'),
+            title: const Text('Currency Convertor'),
             centerTitle: true
         ),
         body: Center(
@@ -46,7 +46,7 @@ class _startPageState extends State<startPage> {
                       errorText: errTxt
                   ),
                   keyboardType: TextInputType.number,
-                  onChanged: (valueInput){
+                  onChanged: (String valueInput){
                     setState(() {
                       toChange = valueInput;
                     });
@@ -60,7 +60,7 @@ class _startPageState extends State<startPage> {
                           double money = double.tryParse(toChange);
                           money = money * 4.5;
                           toShow = money.toStringAsFixed(2);
-                          toShow = toShow + " RON";
+                          toShow = toShow + ' RON';
                         }
                         else{
                           toShow = '';
@@ -69,12 +69,12 @@ class _startPageState extends State<startPage> {
 
                       });
                     },
-                    child: Text("CONVERT!",
+                    child: const Text('CONVERT!',
                       style: TextStyle(fontSize: 15),
                     ),
                 ),
-                Text("$toShow",
-                    style: TextStyle(
+                Text('$toShow',
+                    style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 30,
               ),
