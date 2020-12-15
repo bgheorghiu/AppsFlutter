@@ -1,4 +1,3 @@
-
 import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'audio_button.dart';
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: new ThemeData(
+      theme: ThemeData(
         primaryColor: Colors.blueAccent,
       ),
       home: HomePage(),
@@ -29,15 +28,15 @@ class _HomePageState extends State<HomePage> {
   List<AudioButton> buttonsList;
 
   List<AudioButton> doInit(){
-    var _audioButtons = <AudioButton>[
-      new AudioButton(text: "Salut"),
-      new AudioButton(text: "Salut", language: true),
-      new AudioButton(text: "Ma numesc"),
-      new AudioButton(text: "Ma numesc", language: true),
-      new AudioButton(text: "Cum esti?"),
-      new AudioButton(text: "Cum esti?", language: true),
-      new AudioButton(text: "Sunt bine"),
-      new AudioButton(text: "Sunt bine", language: true),
+    final List<AudioButton> _audioButtons = <AudioButton>[
+      AudioButton(text: 'Salut'),
+      AudioButton(text: 'Salut', language: true),
+      AudioButton(text: 'Ma numesc'),
+      AudioButton(text: 'Ma numesc', language: true),
+      AudioButton(text: 'Cum esti?'),
+      AudioButton(text: 'Cum esti?', language: true),
+      AudioButton(text: 'Sunt bine'),
+      AudioButton(text: 'Sunt bine', language: true),
     ];
     return _audioButtons;
   }
@@ -45,13 +44,12 @@ class _HomePageState extends State<HomePage> {
   void onPlayAudio(String fileName){
     //AssetsAudioPlayer audioCache = AssetsAudioPlayer();
     //audioCache.open(Audio('sounds/$fileName.mp3'));
-    AudioCache player = AudioCache();
+    final AudioCache player = AudioCache();
     player.play('$fileName.mp3');
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     buttonsList = doInit();
   }
@@ -60,24 +58,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sunete'),
+        title: const Text('Sunete'),
         centerTitle: true,
       ),
       body: Center(
         child:
         GridView.builder(
           padding: const EdgeInsets.all(10.0),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 1.0,
             crossAxisSpacing: 9.0,
             mainAxisSpacing: 9.0,
           ),
           itemCount: buttonsList.length,
-          itemBuilder: (context,i) => new SizedBox(
+          itemBuilder: (context,int i) => SizedBox(
             width: 100.0,
             height: 100.0,
-
             child: RaisedButton(
               padding: const EdgeInsets.all(10.0),
               onPressed: buttonsList[i].enabled
@@ -86,7 +83,7 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: Text(
                   buttonsList[i].text,
-                  style: new TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20.0
                   ),

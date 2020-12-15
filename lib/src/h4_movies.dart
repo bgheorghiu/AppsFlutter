@@ -1,23 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'dart:async';
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 String dropdownValue = 'Comedy';
 String dropdownValue2 = '5';
 String dropdownValue3 = '720p';
-final NotFoundURL =
+const String NotFoundURL =
     'https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png';
-int NoOfGetMore = 1;
-var ListLength = 0;
+int noOfGetMore = 1;
+int listLength = 0;
 
+// ignore: always_specify_types
 Future<List> doInit() async {
-  List<Map> movies = [];
+  // ignore: always_specify_types
+  final List<Map> movies = [];
   int pageCounter = 1;
   while (movies.length < 50) {
     Uri uri = Uri.parse('https://yts.mx/api/v2/list_movies.json');
-    var pageValue = pageCounter.toString();
-    final params = {
+    final String pageValue = pageCounter.toString();
+    final Map<String, String> params = {
       'minimum_rating': dropdownValue2,
       'genre': dropdownValue,
       'quality': dropdownValue3,
@@ -44,9 +47,9 @@ Future<List> doInit() async {
     }
   }
   if (movies.length < 10) {
-    ListLength = movies.length;
+    listLength = movies.length;
   } else {
-    ListLength = 10;
+    listLength = 10;
   }
   return movies;
 }
@@ -76,6 +79,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // ignore: always_specify_types
   List<Map> moviesList = [];
 
   @override
@@ -92,7 +96,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Choose ya movie!',
         ),
       ),
@@ -153,7 +157,7 @@ class _HomePageState extends State<HomePage> {
               ),
               DropdownButton<String>(
                 value: dropdownValue3,
-                icon: Icon(Icons.arrow_downward),
+                icon: const Icon(Icons.arrow_downward),
                 iconSize: 32,
                 elevation: 16,
                 style: const TextStyle(color: dropColor),
@@ -171,10 +175,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          if (ListLength > 0) Expanded(
+          if (listLength > 0) Expanded(
                   flex: 1,
                   child: GridView.builder(
-                      itemCount: ListLength,
+                      itemCount: listLength,
                       gridDelegate:
                           // crossAxisCount stands for number of columns you want for displaying
                           const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
@@ -201,7 +205,7 @@ class _HomePageState extends State<HomePage> {
               ),
               onPressed: () {
                 setState(() {
-                  NoOfGetMore = 1;
+                  noOfGetMore = 1;
                 });
                 doInit().then((movies) {
                   setState(() {
@@ -222,11 +226,11 @@ class _HomePageState extends State<HomePage> {
               ),
               onPressed: () {
                 setState(() {
-                  NoOfGetMore += 1;
-                  if (moviesList.length < (10 * NoOfGetMore)) {
-                    ListLength = moviesList.length;
+                  noOfGetMore += 1;
+                  if (moviesList.length < (10 * noOfGetMore)) {
+                    listLength = moviesList.length;
                   } else {
-                    ListLength = 10 * NoOfGetMore;
+                    listLength = 10 * noOfGetMore;
                   }
                 });
               },
