@@ -205,7 +205,7 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   noOfGetMore = 1;
                 });
-                doInit().then((List movies) {
+                doInit().then((List<dynamic> movies) {
                   setState(() {
                     moviesList = movies;
                   });
