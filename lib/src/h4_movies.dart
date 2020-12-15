@@ -142,18 +142,8 @@ class _HomePageState extends State<HomePage> {
                     dropdownValue2 = newValue;
                   });
                 },
-                items: <String>[
-                  '0',
-                  '1',
-                  '2',
-                  '3',
-                  '4',
-                  '5',
-                  '6',
-                  '7',
-                  '8',
-                  '9'
-                ].map<DropdownMenuItem<String>>((String value) {
+                items: <String>['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -171,8 +161,7 @@ class _HomePageState extends State<HomePage> {
                     dropdownValue3 = newValue;
                   });
                 },
-                items: <String>['720p', '1080p', '2160p', '3D']
-                    .map<DropdownMenuItem<String>>((String value) {
+                items: <String>['720p', '1080p', '2160p', '3D'].map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -188,8 +177,7 @@ class _HomePageState extends State<HomePage> {
                   itemCount: listLength,
                   gridDelegate:
                       // crossAxisCount stands for number of columns you want for displaying
-                      const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2),
+                      const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                   itemBuilder: (BuildContext context, int index) {
                     return Stack(children: <Widget>[
                       Container(
@@ -205,8 +193,7 @@ class _HomePageState extends State<HomePage> {
                         alignment: Alignment.bottomCenter,
                         child: Text(
                           moviesList[index]['title'],
-                          style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 15.0),
+                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -217,52 +204,50 @@ class _HomePageState extends State<HomePage> {
             const Center(
               child: CircularProgressIndicator(),
             ),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                RaisedButton(
-                  child: const Text(
-                    ' Search! ',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.0,
-                    ),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      noOfGetMore = 1;
-                    });
-                    doInit().then((List<dynamic> movies) {
-                      setState(() {
-                        moviesList = movies;
-                      });
-                    });
-                  },
-                  color: primaryColor,
-                  padding: const EdgeInsets.all(20.0),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <Widget>[
+            RaisedButton(
+              child: const Text(
+                ' Search! ',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
                 ),
-                RaisedButton(
-                  child: const Text(
-                    'Get more!',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.0,
-                    ),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      noOfGetMore += 1;
-                      if (moviesList.length < (10 * noOfGetMore)) {
-                        listLength = moviesList.length;
-                      } else {
-                        listLength = 10 * noOfGetMore;
-                      }
-                    });
-                  },
-                  color: primaryColor,
-                  padding: const EdgeInsets.all(20.0),
+              ),
+              onPressed: () {
+                setState(() {
+                  noOfGetMore = 1;
+                });
+                doInit().then((List<dynamic> movies) {
+                  setState(() {
+                    moviesList = movies;
+                  });
+                });
+              },
+              color: primaryColor,
+              padding: const EdgeInsets.all(20.0),
+            ),
+            RaisedButton(
+              child: const Text(
+                'Get more!',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
                 ),
-              ]),
+              ),
+              onPressed: () {
+                setState(() {
+                  noOfGetMore += 1;
+                  if (moviesList.length < (10 * noOfGetMore)) {
+                    listLength = moviesList.length;
+                  } else {
+                    listLength = 10 * noOfGetMore;
+                  }
+                });
+              },
+              color: primaryColor,
+              padding: const EdgeInsets.all(20.0),
+            ),
+          ]),
         ],
       ),
     );

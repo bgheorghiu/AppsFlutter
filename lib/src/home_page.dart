@@ -64,10 +64,12 @@ class _HomePageState extends State<HomePage> {
       okP1 = true;
       okP2 = true;
       for (int j = 0; j < 3; j++) {
-        if (!player1.contains(possibilities[i][j]))
+        if (!player1.contains(possibilities[i][j])) {
           okP1 = false;
-        if (!player2.contains(possibilities[i][j]))
+        }
+        if (!player2.contains(possibilities[i][j])) {
           okP2 = false;
+        }
       }
       if (okP1) {
         winner = 1;
@@ -83,13 +85,11 @@ class _HomePageState extends State<HomePage> {
       if (winner == 1) {
         showDialog<bool>(
             context: context,
-            builder: (_) => CustomDialog('!___red player won___!',
-                'press Reset button to start again', resetGame));
+            builder: (_) => CustomDialog('!___red player won___!', 'press Reset button to start again', resetGame));
       } else {
         showDialog<bool>(
             context: context,
-            builder: (_) => CustomDialog('!___blue player won___!',
-                'press Reset button to start again', resetGame));
+            builder: (_) => CustomDialog('!___blue player won___!', 'press Reset button to start again', resetGame));
       }
     } else {
       if (player1.length + player2.length == 9) // resets if no one won
@@ -98,8 +98,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   void resetGame() {
-    if (Navigator.canPop(context))
+    if (Navigator.canPop(context)) {
       Navigator.pop(context);
+    }
     setState(() {
       buttonsList = doInit();
     });
@@ -138,9 +139,7 @@ class _HomePageState extends State<HomePage> {
                 height: 100.0,
                 child: RaisedButton(
                   padding: const EdgeInsets.all(10.0),
-                  onPressed: buttonsList[i].enabled
-                      ? () => playGame(buttonsList[i])
-                      : null,
+                  onPressed: buttonsList[i].enabled ? () => playGame(buttonsList[i]) : null,
                   child: Text(
                     buttonsList[i].text,
                     style: const TextStyle(color: Colors.white, fontSize: 20.0),

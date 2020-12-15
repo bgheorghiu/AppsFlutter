@@ -75,9 +75,7 @@ class _HomePageState extends State<HomePage> {
             height: 100.0,
             child: RaisedButton(
               padding: const EdgeInsets.all(10.0),
-              onPressed: buttonsList[i].enabled
-                  ? () => onPlayAudio(buttonsList[i].nameFile)
-                  : null,
+              onPressed: buttonsList[i].enabled ? () => onPlayAudio(buttonsList[i].nameFile) : null,
               child: Center(
                 child: Text(
                   buttonsList[i].text,

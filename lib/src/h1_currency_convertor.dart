@@ -27,15 +27,13 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(title: const Text('Currency Convertor'), centerTitle: true),
+      appBar: AppBar(title: const Text('Currency Convertor'), centerTitle: true),
       body: Center(
         child: Column(
           children: <Widget>[
             Image.asset('assets/images/background.jpg', fit: BoxFit.cover),
             TextField(
-              decoration: InputDecoration(
-                  hintText: 'Enter the amount in EUR', errorText: errTxt),
+              decoration: InputDecoration(hintText: 'Enter the amount in EUR', errorText: errTxt),
               keyboardType: TextInputType.number,
               onChanged: (String valueInput) {
                 setState(() {
