@@ -28,7 +28,7 @@ Future<List<dynamic>> doInit() async {
     final Uri newURI = uri.replace(queryParameters: params);
     final Response response = await get(newURI);
     final Map<dynamic, dynamic> decoder = jsonDecode(response.body);
-    final Map<dynamic, dynamic> tempMovies = decoder['data']['movies'];
+    final List<dynamic> tempMovies = decoder['data']['movies'];
     print(decoder['data']['page_number']);
     print(movies.length);
     pageCounter += 1;
@@ -75,8 +75,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // ignore: always_specify_types
-  List<Map> moviesList = [];
+  List<dynamic> moviesList = <dynamic>[];
 
   @override
   void initState() {
@@ -192,12 +191,26 @@ class _HomePageState extends State<HomePage> {
                       const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2),
                   itemBuilder: (BuildContext context, int index) {
-                    return FittedBox(
-                      child: Image.network(
-                        moviesList[index]['medium_cover_image'],
-                        fit: BoxFit.fitHeight,
+                    return Stack(children: <Widget>[
+                      Container(
+                        alignment: Alignment.topCenter,
+                        child: Image.network(
+                          moviesList[index]['medium_cover_image'],
+                          height: 189,
+                          width: 126,
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
-                    );
+                      Container(
+                        alignment: Alignment.bottomCenter,
+                        child: Text(
+                          moviesList[index]['title'],
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15.0),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ]);
                   }),
             )
           else
