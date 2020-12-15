@@ -54,17 +54,17 @@ class _HomePageState extends State<HomePage> {
     bool okP1;
     bool okP2;
     // ignore: always_specify_types
-    final List<List<int>> possibilities = <List<int>>[
-      [1, 5, 9], [3, 5, 7], [1, 2, 3], [4, 5, 6],
+    final List<List<int>> possibilities = <List<int>>[ [1, 5, 9], [3, 5, 7], [1, 2, 3], [4, 5, 6],
       // ignore: always_specify_types
-      [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9]
-    ];
+      [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9]];
     for (int i = 0; i < 8; i++) {
       okP1 = true;
       okP2 = true;
       for (int j = 0; j < 3; j++) {
-        if (!player1.contains(possibilities[i][j])) okP1 = false;
-        if (!player2.contains(possibilities[i][j])) okP2 = false;
+        if (!player1.contains(possibilities[i][j]))
+          okP1 = false;
+        if (!player2.contains(possibilities[i][j]))
+          okP2 = false;
       }
       if (okP1) {
         winner = 1;
@@ -95,7 +95,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void resetGame() {
-    if (Navigator.canPop(context)) Navigator.pop(context);
+    if (Navigator.canPop(context))
+      Navigator.pop(context);
     setState(() {
       buttonsList = doInit();
     });
