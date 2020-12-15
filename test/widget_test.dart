@@ -12,7 +12,7 @@ import 'package:flutter_apps/src/h4_movies.dart';
 void main() {
   testWidgets(
     'Counter increments smoke test',
-        (WidgetTester tester) async {
+    (WidgetTester tester) async {
       // Build our app and trigger a frame.
       await tester.pumpWidget(MyApp());
 

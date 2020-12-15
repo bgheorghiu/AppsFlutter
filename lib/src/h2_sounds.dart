@@ -24,10 +24,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   List<AudioButton> buttonsList;
 
-  List<AudioButton> doInit(){
+  List<AudioButton> doInit() {
     final List<AudioButton> _audioButtons = <AudioButton>[
       AudioButton(text: 'Salut'),
       AudioButton(text: 'Salut', language: true),
@@ -41,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     return _audioButtons;
   }
 
-  void onPlayAudio(String fileName){
+  void onPlayAudio(String fileName) {
     //AssetsAudioPlayer audioCache = AssetsAudioPlayer();
     //audioCache.open(Audio('sounds/$fileName.mp3'));
     final AudioCache player = AudioCache();
@@ -62,8 +61,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: Center(
-        child:
-        GridView.builder(
+        child: GridView.builder(
           padding: const EdgeInsets.all(10.0),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -72,7 +70,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisSpacing: 9.0,
           ),
           itemCount: buttonsList.length,
-          itemBuilder: (BuildContext context,int i) => SizedBox(
+          itemBuilder: (BuildContext context, int i) => SizedBox(
             width: 100.0,
             height: 100.0,
             child: RaisedButton(
@@ -83,10 +81,7 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: Text(
                   buttonsList[i].text,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0
-                  ),
+                  style: const TextStyle(color: Colors.white, fontSize: 20.0),
                 ),
               ),
               color: Colors.blueAccent,
@@ -97,4 +92,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

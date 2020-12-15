@@ -12,9 +12,7 @@ const String NotFoundURL =
 int noOfGetMore = 1;
 int listLength = 0;
 
-
 Future<List<dynamic>> doInit() async {
-
   final List<dynamic> movies = <dynamic>[];
   int pageCounter = 1;
   while (movies.length < 50) {
@@ -145,8 +143,18 @@ class _HomePageState extends State<HomePage> {
                     dropdownValue2 = newValue;
                   });
                 },
-                items: <String>['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-                    .map<DropdownMenuItem<String>>((String value) {
+                items: <String>[
+                  '0',
+                  '1',
+                  '2',
+                  '3',
+                  '4',
+                  '5',
+                  '6',
+                  '7',
+                  '8',
+                  '9'
+                ].map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -164,7 +172,8 @@ class _HomePageState extends State<HomePage> {
                     dropdownValue3 = newValue;
                   });
                 },
-                items: <String>['720p', '1080p', '2160p', '3D'].map<DropdownMenuItem<String>>((String value) {
+                items: <String>['720p', '1080p', '2160p', '3D']
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -173,69 +182,74 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          if (listLength > 0) Expanded(
-                  flex: 1,
-                  child: GridView.builder(
-                      itemCount: listLength,
-                      gridDelegate:
-                          // crossAxisCount stands for number of columns you want for displaying
-                          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                      itemBuilder: (BuildContext context, int index) {
-                        return FittedBox(
-                          child: Image.network(
-                            moviesList[index]['medium_cover_image'],
-                            fit: BoxFit.fitHeight,
-                          ),
-                        );
-                      }),
-                ) else
-                  const Center(
-                    child: CircularProgressIndicator(),
-                ),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: <Widget>[
-            RaisedButton(
-              child: const Text(
-                ' Search! ',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  noOfGetMore = 1;
-                });
-                doInit().then((List<dynamic> movies) {
-                  setState(() {
-                    moviesList = movies;
-                  });
-                });
-              },
-              color: primaryColor,
-              padding: const EdgeInsets.all(20.0),
+          if (listLength > 0)
+            Expanded(
+              flex: 1,
+              child: GridView.builder(
+                  itemCount: listLength,
+                  gridDelegate:
+                      // crossAxisCount stands for number of columns you want for displaying
+                      const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2),
+                  itemBuilder: (BuildContext context, int index) {
+                    return FittedBox(
+                      child: Image.network(
+                        moviesList[index]['medium_cover_image'],
+                        fit: BoxFit.fitHeight,
+                      ),
+                    );
+                  }),
+            )
+          else
+            const Center(
+              child: CircularProgressIndicator(),
             ),
-            RaisedButton(
-              child: const Text(
-                'Get more!',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                RaisedButton(
+                  child: const Text(
+                    ' Search! ',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      noOfGetMore = 1;
+                    });
+                    doInit().then((List<dynamic> movies) {
+                      setState(() {
+                        moviesList = movies;
+                      });
+                    });
+                  },
+                  color: primaryColor,
+                  padding: const EdgeInsets.all(20.0),
                 ),
-              ),
-              onPressed: () {
-                setState(() {
-                  noOfGetMore += 1;
-                  if (moviesList.length < (10 * noOfGetMore)) {
-                    listLength = moviesList.length;
-                  } else {
-                    listLength = 10 * noOfGetMore;
-                  }
-                });
-              },
-              color: primaryColor,
-              padding: const EdgeInsets.all(20.0),
-            ),
-          ]),
+                RaisedButton(
+                  child: const Text(
+                    'Get more!',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.0,
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      noOfGetMore += 1;
+                      if (moviesList.length < (10 * noOfGetMore)) {
+                        listLength = moviesList.length;
+                      } else {
+                        listLength = 10 * noOfGetMore;
+                      }
+                    });
+                  },
+                  color: primaryColor,
+                  padding: const EdgeInsets.all(20.0),
+                ),
+              ]),
         ],
       ),
     );

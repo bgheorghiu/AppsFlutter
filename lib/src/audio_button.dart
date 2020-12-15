@@ -1,6 +1,5 @@
-
-class AudioButton{
-  AudioButton({this.text, this.language = false, this.enabled = true}){
+class AudioButton {
+  AudioButton({this.text, this.language = false, this.enabled = true}) {
     nameFile = text.split(' ')[0].toLowerCase();
     if (language == true) {
       text = text + ' (GER)';
