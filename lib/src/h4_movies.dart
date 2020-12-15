@@ -9,9 +9,9 @@ String dropdownValue3 = '720p';
 final NotFoundURL = "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png";
 int NoOfGetMore = 1;
 var ListLength = 0;
-doInit() async {
+Future<List> doInit() async {
 
-  var movies = [];
+  List<Map> movies = [];
   int pageCounter = 1;
   while(movies.length < 50) {
     Uri uri = Uri.parse("https://yts.mx/api/v2/list_movies.json");
@@ -25,8 +25,8 @@ doInit() async {
     final newURI = uri.replace(queryParameters: params);
     final Response response = await get(newURI);
     final String data = response.body;
-    final decoder = jsonDecode(response.body);
-    final tempMovies = decoder["data"]["movies"];
+    final Map decoder = jsonDecode(response.body);
+    final Map tempMovies = decoder["data"]["movies"];
     print(decoder["data"]["page_number"]);
     print(movies.length);
     pageCounter += 1;
@@ -74,7 +74,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  var filme = [];
+  List<Map> filme = [];
 
   @override
   void initState() {
@@ -198,9 +198,6 @@ class _HomePageState extends State<HomePage> {
                   doInit().then((movies){
                     setState(() {
                       filme = movies;
-                      if(filme == null) {
-                        filme = [{"medium_cover_image": NotFoundURL}];
-                      }
                     });
                   });
                 },

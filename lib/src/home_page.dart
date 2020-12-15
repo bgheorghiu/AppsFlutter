@@ -10,14 +10,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   List<GameButton> buttonsList;
-  var player1;
-  var player2;
-  var activePlayer;
+  var player1 = new List<int>();
+  var player2 = new List<int>();
+  int activePlayer = 1;
 
   List<GameButton> doInit(){
-    player1 = new List();
-    player2 = new List();
-    activePlayer = 1;
+    player1 = new List<int>();
+    player2 = new List<int>();
+    int activePlayer = 1;
     var _gameButtons = <GameButton>[
       new GameButton(id: 1),
       new GameButton(id: 2),
@@ -55,8 +55,8 @@ class _HomePageState extends State<HomePage> {
 
   void checkWinner(){
     var winner = -1;
-    var okP1;
-    var okP2;
+    bool okP1;
+    bool okP2;
     List<List<int>> possibilities = [[1, 5, 9], [3, 5, 7], [1, 2, 3], [4, 5, 6],
                                   [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9]];
     for(int i = 0 ; i < 8 ; i++ ) {
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
 
     if(winner != -1){
       if(winner == 1){
-        showDialog(
+        showDialog<bool>(
           context: context,
           builder: (_)=> new CustomDialog("!___red player won___!",
               "press Reset button to start again",
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
         );
       }
       else{
-        showDialog(
+        showDialog<bool>(
             context: context,
             builder: (_)=> new CustomDialog("!___blue player won___!",
                 "press Reset button to start again",

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomDialog extends StatelessWidget {
-  final title;
-  final content;
+  final String title;
+  final String content;
   final VoidCallback callback;
-  final actionText;
+  final String actionText;
 
   CustomDialog(this.title, this.content, this.callback,
       [this.actionText = "Reset"]);

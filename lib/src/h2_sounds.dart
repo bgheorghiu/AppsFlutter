@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     return _audioButtons;
   }
 
-  onPlayAudio(String fileName){
+  void onPlayAudio(String fileName){
     //AssetsAudioPlayer audioCache = AssetsAudioPlayer();
     //audioCache.open(Audio('sounds/$fileName.mp3'));
     AudioCache player = AudioCache();

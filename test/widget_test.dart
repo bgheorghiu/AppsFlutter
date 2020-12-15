@@ -7,14 +7,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lib/src/h4_movies.dart' as app;
+import 'package:flutter_apps/src/h4_movies.dart' as app;
 
 void main() {
   testWidgets(
     'Counter increments smoke test',
         (WidgetTester tester) async {
       // Build our app and trigger a frame.
-      await tester.pumpWidget(app.MovieListApp());
+      await tester.pumpWidget(app.MyApp());
 
       // Verify that our counter starts at 0.
       expect(
