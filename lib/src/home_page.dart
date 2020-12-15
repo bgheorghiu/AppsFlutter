@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
           new RaisedButton(
             child: new Text(
               "Reset",
-              style: new TextStyle(
+              style: TextStyle(
                color: Colors.white,
                fontSize: 20.0,
               ),
