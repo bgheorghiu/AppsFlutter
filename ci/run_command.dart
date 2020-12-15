@@ -12,12 +12,12 @@ import 'package:pedantic/pedantic.dart';
 final bool hasColor = stdout.supportsAnsiEscapes;
 
 final Directory rootDir =
-    Directory(Platform.environment['PROJECT_ROOT'] ?? Directory.current.path);
+Directory(Platform.environment['PROJECT_ROOT'] ?? Directory.current.path);
 
 final String bold = hasColor ? '\x1B[1m' : ''; // used for shard titles
 final String red = hasColor ? '\x1B[31m' : ''; // used for errors
 final String green =
-    hasColor ? '\x1B[32m' : ''; // used for section titles, commands
+hasColor ? '\x1B[32m' : ''; // used for section titles, commands
 final String yellow = hasColor ? '\x1B[33m' : ''; // unused
 final String cyan = hasColor ? '\x1B[36m' : ''; // used for paths
 final String reverse = hasColor ? '\x1B[7m' : ''; // used for clocks
@@ -27,10 +27,10 @@ final String redLine =
 
 bool fileFilter(String it) =>
     it.endsWith('.dart') && //
-    it != '.dart_tool/build/entrypoint/build.dart' &&
-    !it.endsWith('.g.dart') &&
-    !it.endsWith('.test_coverage.dart') &&
-    !it.endsWith('i18n.dart');
+        it != '.dart_tool/build/entrypoint/build.dart' &&
+        !it.endsWith('.g.dart') &&
+        !it.endsWith('.test_coverage.dart') &&
+        !it.endsWith('i18n.dart');
 
 String get clock {
   final DateTime now = DateTime.now();
@@ -58,15 +58,15 @@ void printProgress(String action, String workingDir, String command) {
 }
 
 Stream<String> runAndGetStdout(
-  String executable,
-  List<String> arguments, {
-  String workingDirectory,
-  Map<String, String> environment,
-  bool expectNonZeroExit = false,
-  int expectedExitCode,
-  String failureMessage,
-  Function beforeExit,
-}) async* {
+    String executable,
+    List<String> arguments, {
+      String workingDirectory,
+      Map<String, String> environment,
+      bool expectNonZeroExit = false,
+      int expectedExitCode,
+      String failureMessage,
+      Function beforeExit,
+    }) async* {
   final String commandDescription =
       '${path.relative(executable, from: workingDirectory)} ${arguments.join(' ')}';
   final String relativeWorkingDir = path.relative(workingDirectory);
@@ -83,21 +83,23 @@ Stream<String> runAndGetStdout(
 
   unawaited(stderr.addStream(process.stderr));
   final Stream<String> lines =
-      process.stdout.transform(utf8.decoder).transform(const LineSplitter());
+  process.stdout.transform(utf8.decoder).transform(const LineSplitter());
   await for (final String line in lines) {
     yield line;
   }
 
   final int exitCode = await process.exitCode;
   print(
-      '$clock ELAPSED TIME: ${prettyPrintDuration(time.elapsed)} for $green$commandDescription$reset in $cyan$relativeWorkingDir$reset');
+      '$clock ELAPSED TIME: ${prettyPrintDuration(time.elapsed)} for $green$commandDescription$reset in '
+          '$cyan$relativeWorkingDir$reset');
   if ((exitCode == 0) == expectNonZeroExit ||
       (expectedExitCode != null && exitCode != expectedExitCode)) {
     if (failureMessage != null) {
       print(failureMessage);
     }
     print('$redLine\n'
-        '${bold}ERROR: ${red}Last command exited with $exitCode (expected: ${expectNonZeroExit ? (expectedExitCode ?? 'non-zero') : 'zero'}).$reset\n'
+        '${bold}ERROR: ${red}Last command exited with $exitCode (expected: ${expectNonZeroExit ?
+    (expectedExitCode ?? 'non-zero') : 'zero'}).$reset\n'
         '${bold}Command: $green$commandDescription$reset\n'
         '${bold}Relative working directory: $cyan$relativeWorkingDir$reset\n'
         '$redLine');
@@ -164,7 +166,8 @@ Future<void> runCommand(
 
   final int exitCode = await process.exitCode;
   print(
-      '$clock ELAPSED TIME: ${prettyPrintDuration(time.elapsed)} for $green$commandDescription$reset in $cyan$relativeWorkingDir$reset');
+      '$clock ELAPSED TIME: ${prettyPrintDuration(time.elapsed)} for $green$commandDescription$reset in '
+          '$cyan$relativeWorkingDir$reset');
 
   if (output != null) {
     output
@@ -190,7 +193,8 @@ Future<void> runCommand(
         break;
     }
     print('$redLine\n'
-        '${bold}ERROR: ${red}Last command exited with $exitCode (expected: ${expectNonZeroExit ? (expectedExitCode ?? 'non-zero') : 'zero'}).$reset\n'
+        '${bold}ERROR: ${red}Last command exited with $exitCode (expected: ${expectNonZeroExit ? (expectedExitCode ??
+        'non-zero') : 'zero'}).$reset\n'
         '${bold}Command: $green$commandDescription$reset\n'
         '${bold}Relative working directory: $cyan$relativeWorkingDir$reset\n'
         '$redLine');
