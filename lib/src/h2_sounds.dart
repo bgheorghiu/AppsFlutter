@@ -65,9 +65,9 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child:
-        new GridView.builder(
+        GridView.builder(
           padding: const EdgeInsets.all(10.0),
-          gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 1.0,
             crossAxisSpacing: 9.0,
@@ -78,13 +78,13 @@ class _HomePageState extends State<HomePage> {
             width: 100.0,
             height: 100.0,
 
-            child: new RaisedButton(
+            child: RaisedButton(
               padding: const EdgeInsets.all(10.0),
               onPressed: buttonsList[i].enabled
                   ? () => onPlayAudio(buttonsList[i].nameFile)
                   : null,
-              child: new Center(
-                child: new Text(
+              child: Center(
+                child: Text(
                   buttonsList[i].text,
                   style: new TextStyle(
                       color: Colors.white,

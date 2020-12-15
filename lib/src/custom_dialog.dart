@@ -11,17 +11,17 @@ class CustomDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: new Center(
-        child: new Text(title)
+      title: Center(
+        child: Text(title)
       ),
-      content: new Text(content),
+      content: Text(content),
       actions: <Widget>[
-        new FlatButton(
+        FlatButton(
           onPressed: callback,
           color: Colors.black12,
-          child: new Text(
+          child: Text(
             actionText,
-            style: new TextStyle(
+            style: TextStyle(
                 color: Colors.black,
             ),
           ),
