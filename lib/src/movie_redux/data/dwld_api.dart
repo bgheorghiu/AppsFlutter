@@ -12,7 +12,7 @@ class DwldApi {
   final Client _client;
 
   Future<List<Movie>> getMovies() async {
-    final Response response = await get('https://yts.mx/api/v2/list_movies.json?limit=150');
+    final Response response = await _client.get('https://yts.mx/api/v2/list_movies.json?limit=150');
     final List<dynamic> dataList = jsonDecode(response.body)['data']['movies'];
 
     return dataList.map((dynamic json) => Movie.fromJson(json)).toList();
