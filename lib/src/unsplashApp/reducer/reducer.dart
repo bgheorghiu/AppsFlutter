@@ -9,7 +9,6 @@ AppState reducer(AppState state, dynamic action) {
   final AppStateBuilder builder = state.toBuilder();
 
   if (action is GetImagesStart) {
-    print("getImagesStartAction");
     builder.isLoading = true;
   } else if (action is GetImagesSuccessful) {
     builder

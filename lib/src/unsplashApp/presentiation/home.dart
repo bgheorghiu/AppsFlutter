@@ -120,7 +120,6 @@ class HomePage extends StatelessWidget {
                               FlatButton(
                                 child: const Text('Load more'),
                                 onPressed: () {
-                                  print("store");
                                   StoreProvider.of<AppState>(context).dispatch(const GetImages());
                                 },
                               ),

@@ -23,7 +23,6 @@ class AppMiddleware {
 
     if (action is GetImagesStart) {
       try {
-        print("incerc");
         final List<ImageSplash> photos = await _unsplashApi.getImages(
           store.state.query,
           store.state.page,
