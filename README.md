@@ -1,8 +1,8 @@
-# GoogleAtelierulDigital Projects
+# GoogleAtelierulDigital Projects (Flutter)
 
 Hello,
 
-My name is Gheorghiu Bogdan and here are my projects for Google's "Atelierul Digital"
+My name is Gheorghiu Bogdan and here are my projects in Flutter for Google's "Atelierul Digital"
 
 LinkedIn: https://www.linkedin.com/in/bogdan-gheorghiu-bb46ab132/
 
