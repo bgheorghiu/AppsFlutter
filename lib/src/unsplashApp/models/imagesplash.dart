@@ -1,11 +1,4 @@
-library imagesplash;
-
-import 'package:built_value/serializer.dart';
-import 'package:built_value/built_value.dart';
-import 'serializers.dart';
-import 'urls.dart';
-
-part 'imagesplash.g.dart';
+part of models;
 
 abstract class ImageSplash implements Built<ImageSplash, ImageSplashBuilder> {
   factory ImageSplash([void Function(ImageSplashBuilder) updates]) = _$ImageSplash;

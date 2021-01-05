@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_apps/src/unsplashApp/models/imagesplash.dart';
+import 'package:flutter_apps/src/unsplashApp/models/index.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 

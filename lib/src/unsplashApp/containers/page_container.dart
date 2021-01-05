@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_apps/src/unsplashApp/models/app_state.dart';
+import 'package:flutter_apps/src/unsplashApp/models/index.dart';
 import 'package:meta/meta.dart';
 import 'package:redux/redux.dart';
 

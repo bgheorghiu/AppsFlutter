@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_apps/src/unsplashApp/actions/get_images.dart';
+import 'package:flutter_apps/src/unsplashApp/actions/index.dart';
 import 'package:flutter_apps/src/unsplashApp/data/unsplash_api.dart';
 import 'package:flutter_apps/src/unsplashApp/middleware/app_middleware.dart';
-import 'package:flutter_apps/src/unsplashApp/models/app_state.dart';
+import 'package:flutter_apps/src/unsplashApp/models/index.dart';
 import 'package:flutter_apps/src/unsplashApp/presentiation/home.dart';
 import 'package:flutter_apps/src/unsplashApp/presentiation/image_detail.dart';
 import 'package:flutter_apps/src/unsplashApp/reducer/reducer.dart';

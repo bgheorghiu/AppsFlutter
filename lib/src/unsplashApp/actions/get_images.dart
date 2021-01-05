@@ -1,9 +1,4 @@
-library get_images;
-
-import 'package:flutter_apps/src/unsplashApp/models/imagesplash.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'get_images.freezed.dart';
+part of actions;
 
 @freezed
 abstract class GetImages with _$GetImages {

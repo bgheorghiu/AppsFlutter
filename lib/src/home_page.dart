@@ -34,13 +34,13 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (activePlayer == 1) {
         gb.text = 'X';
-        gb.bg = Colors.redAccent;
+        gb.bg = Color(0xffEF5B5B);
         activePlayer = 2;
         print(gb.id);
         player1.add(gb.id);
       } else {
         gb.text = '0';
-        gb.bg = Colors.blueAccent;
+        gb.bg = Color(0xff20A39E);
         activePlayer = 1;
         player2.add(gb.id);
       }
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
       } else {
         showDialog<bool>(
             context: context,
-            builder: (_) => CustomDialog('!___blue player won___!', 'press Reset button to start again', resetGame));
+            builder: (_) => CustomDialog('!___green player won___!', 'press Reset button to start again', resetGame));
       }
     } else {
       if (player1.length + player2.length == 9) // resets if no one won
@@ -117,7 +117,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
-          child: Text('Tic-Tac-Toe'),
+          child: Text(
+            'Tic-Tac-Toe',
+            style: TextStyle(
+              fontFamily: 'Avenir',
+              fontSize: 30,
+              color: Colors.white,
+              fontWeight: FontWeight.w900,
+            ),
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
       body: Column(
@@ -144,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                     buttonsList[i].text,
                     style: const TextStyle(color: Colors.white, fontSize: 20.0),
                   ),
-                  color: buttonsList[i].bg,
+                  color: Colors.white70,
                   disabledColor: buttonsList[i].bg,
                 ),
               ),
@@ -155,10 +164,12 @@ class _HomePageState extends State<HomePage> {
               'Reset',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20.0,
+                fontSize: 25.0,
+                fontFamily: 'Avenir',
+                fontWeight: FontWeight.w900,
               ),
             ),
-            color: Colors.blueAccent,
+            color: Color(0xffE0A458),
             padding: const EdgeInsets.all(20.0),
             onPressed: resetGame,
           ),

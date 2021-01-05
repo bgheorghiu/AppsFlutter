@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:meta/meta.dart';
-import 'package:flutter_apps/src/unsplashApp/models/app_state.dart';
+import 'package:flutter_apps/src/unsplashApp/models/index.dart';
 
 class IsLoadingContainer extends StatelessWidget {
   const IsLoadingContainer({Key key, @required this.builder}) : super(key: key);

@@ -1,10 +1,4 @@
-library app_state;
-
-import 'package:built_value/built_value.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:flutter_apps/src/unsplashApp/models/imagesplash.dart';
-
-part 'app_state.g.dart';
+part of models;
 
 abstract class AppState implements Built<AppState, AppStateBuilder> {
   factory AppState([void Function(AppStateBuilder) updates]) = _$AppState;
@@ -14,7 +8,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
     builder
       ..isLoading = true
       ..page = 1
-      ..query = 'animals';
+      ..query = 'blue fruits';
     return builder.build();
   }
 
