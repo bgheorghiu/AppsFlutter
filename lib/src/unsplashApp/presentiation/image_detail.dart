@@ -11,7 +11,7 @@ class ImageDetail extends StatelessWidget {
       builder: (BuildContext context, ImageSplash currImg) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(
+            title: const Text(
               'Get Back',
             ),
             backgroundColor: Colors.black12,
@@ -23,10 +23,10 @@ class ImageDetail extends StatelessWidget {
               children: <Widget>[
                 Text(
                   currImg.altDescription.toUpperCase(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontFamily: 'Avenir',
                     fontSize: 18,
-                    color: const Color(0xff424242),
+                    color: Color(0xff424242),
                     fontWeight: FontWeight.w900,
                   ),
                   textAlign: TextAlign.center,

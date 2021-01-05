@@ -34,13 +34,13 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (activePlayer == 1) {
         gb.text = 'X';
-        gb.bg = Color(0xffEF5B5B);
+        gb.bg = const Color(0xffEF5B5B);
         activePlayer = 2;
         print(gb.id);
         player1.add(gb.id);
       } else {
         gb.text = '0';
-        gb.bg = Color(0xff20A39E);
+        gb.bg = const Color(0xff20A39E);
         activePlayer = 1;
         player2.add(gb.id);
       }
@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                 fontWeight: FontWeight.w900,
               ),
             ),
-            color: Color(0xffE0A458),
+            color: const Color(0xffE0A458),
             padding: const EdgeInsets.all(20.0),
             onPressed: resetGame,
           ),

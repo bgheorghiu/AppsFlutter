@@ -11,14 +11,6 @@ import 'package:flutter_apps/src/unsplashApp/actions/index.dart';
 import 'package:flutter_apps/src/unsplashApp/models/index.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-Color primaryTextColor = Color(0xFF414C6B);
-Color secondaryTextColor = Color(0xFFE4979E);
-Color titleTextColor = Colors.white;
-Color contentTextColor = Color(0xff868686);
-Color navigationColor = Color(0xFF6751B5);
-Color gradientStartColor = Color(0xFF0050AC);
-Color gradientEndColor = Color(0xFF9354B9);
-
 String inputText;
 
 class HomePage extends StatelessWidget {
@@ -33,22 +25,23 @@ class HomePage extends StatelessWidget {
             backgroundColor: const Color(0xfff5f5f5),
             body: ListView(
               shrinkWrap: true,
-              children: [
+              children: <Widget>[
                 Container(
                   child: SafeArea(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.all(32.0),
                           child: Column(
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: <Widget>[
-                              Text(
+                               const Text(
                                 'Explore colors',
                                 style: TextStyle(
                                   fontFamily: 'Avenir',
+                                  color: Color(0xff424242),
                                   fontSize: 44,
-                                  color: const Color(0xff424242),
                                   fontWeight: FontWeight.w900,
                                 ),
                                 textAlign: TextAlign.center,
@@ -108,40 +101,41 @@ class HomePage extends StatelessWidget {
                                                         ),
                                                       ),
                                                     ),
-                                                    Text(
+                                                    const Text(
                                                       'Swipe',
                                                       style: TextStyle(
                                                         fontFamily: 'Avenir',
                                                         fontSize: 44,
-                                                        color: const Color(0xff424242),
+                                                        color: Color(0xff424242),
                                                         fontWeight: FontWeight.w900,
                                                       ),
                                                       textAlign: TextAlign.left,
                                                     ),
-                                                    Text(
+                                                    const Text(
                                                       'right for more',
                                                       style: TextStyle(
                                                         fontFamily: 'Avenir',
                                                         fontSize: 23,
-                                                        color: const Color(0xff424242),
+                                                        color: Color(0xff424242),
                                                         fontWeight: FontWeight.w900,
                                                       ),
                                                       textAlign: TextAlign.left,
                                                     ),
                                                     FlatButton(
                                                       child: Row(
-                                                        children: [
+                                                        // ignore: prefer_const_literals_to_create_immutables
+                                                        children: <Widget>[
                                                           const Text('touch to load',
                                                               style: TextStyle(
                                                                 fontFamily: 'Avenir',
                                                                 fontSize: 18,
-                                                                color: const Color(0xFFE4979E),
+                                                                color: Color(0xFFE4979E),
                                                                 fontWeight: FontWeight.w500,
                                                               ),
                                                               textAlign: TextAlign.left),
-                                                          Icon(
+                                                           const Icon(
                                                             Icons.arrow_circle_down,
-                                                            color: secondaryTextColor,
+                                                            color: Color(0xFFE4979E),
                                                           ),
                                                         ],
                                                       ),
@@ -173,7 +167,7 @@ class HomePage extends StatelessWidget {
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.white),
                         child: DropdownButton<String>(
                           isExpanded: true,
-                          hint: Text('Choose your color'),
+                          hint: const Text('Choose your color'),
                           onChanged: (String value) {
                             StoreProvider.of<AppState>(context)
                               ..dispatch(UpdateColor(value))
@@ -196,10 +190,10 @@ class HomePage extends StatelessWidget {
                               child: Center(
                                 child: Text(
                                   color,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontFamily: 'Avenir',
                                     fontSize: 20,
-                                    color: const Color(0xff424242),
+                                    color: Color(0xff424242),
                                     fontWeight: FontWeight.w900,
                                   ),
                                   textAlign: TextAlign.center,
@@ -208,7 +202,7 @@ class HomePage extends StatelessWidget {
                               value: color,
                             );
                           }).toList(),
-                          underline: SizedBox(),
+                          underline: const SizedBox(),
                         ),
                       ),
                     );
@@ -220,7 +214,7 @@ class HomePage extends StatelessWidget {
                       children: <Widget>[
                         Expanded(
                           child: TextField(
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: 'Enter your text',
                             ),
                             onChanged: (String value) {
