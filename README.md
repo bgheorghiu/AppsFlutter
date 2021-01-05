@@ -1,16 +1,20 @@
-# flutter_apps
+# GoogleAtelierulDigital Projects
 
-A new Flutter project.
+Hello,
 
-## Getting Started
+My name is Gheorghiu Bogdan and here are my projects for Google's "Atelierul Digital"
+LinkedIn: https://www.linkedin.com/in/bogdan-gheorghiu-bb46ab132/
 
-This project is a starting point for a Flutter application.
+## Projects
 
-A few resources to get you started if this is your first Flutter project:
+UnSplash App with Redux State Management
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img width="204" alt="git1" src="https://user-images.githubusercontent.com/74901437/103650123-376cc380-4f68-11eb-86d0-3e79a980c617.png"> <img width="205" alt="git2" src="https://user-images.githubusercontent.com/74901437/103650240-62571780-4f68-11eb-85b9-a5662cecfaae.png">
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+The git repo also contains source code for TicTacToe game, Currency Convertor(RON -> EURO) application and a Sound App with Romanian and German Words.
+
+<img width="210" alt="git3" src="https://user-images.githubusercontent.com/74901437/103650332-83b80380-4f68-11eb-98ea-0fb8eea6f35a.png"> <img width="212" alt="git4" src="https://user-images.githubusercontent.com/74901437/103650392-9e8a7800-4f68-11eb-8f88-ff41c3e10dba.png"><img width="205" alt="git5" src="https://user-images.githubusercontent.com/74901437/103650472-c083fa80-4f68-11eb-82c6-0c2616a145b8.png">
+
+
