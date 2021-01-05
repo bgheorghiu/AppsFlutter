@@ -1,7 +1,6 @@
 import 'package:flutter_apps/src/unsplashApp/data/unsplash_api.dart';
 import 'package:flutter_apps/src/unsplashApp/models/index.dart';
 import 'package:flutter_apps/src/unsplashApp/actions/index.dart';
-import 'package:redux/redux.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:redux_epics/redux_epics.dart';

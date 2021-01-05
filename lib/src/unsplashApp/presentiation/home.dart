@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                           child: Column(
                             // ignore: prefer_const_literals_to_create_immutables
                             children: <Widget>[
-                               const Text(
+                              const Text(
                                 'Explore colors',
                                 style: TextStyle(
                                   fontFamily: 'Avenir',
@@ -133,7 +133,7 @@ class HomePage extends StatelessWidget {
                                                                 fontWeight: FontWeight.w500,
                                                               ),
                                                               textAlign: TextAlign.left),
-                                                           const Icon(
+                                                          const Icon(
                                                             Icons.arrow_circle_down,
                                                             color: Color(0xFFE4979E),
                                                           ),
